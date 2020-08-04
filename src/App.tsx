@@ -4,13 +4,11 @@ import {
   Switch,
   Route,
   Redirect,
-  Link
 } from 'react-router-dom';
 import styled from 'styled-components';
 import Nav from './components/Nav';
 
 const Wrapper = styled.div`
-    border: 1px solid #ff0000;
     height: 100vh;
     display:flex;
     flex-direction: column;
