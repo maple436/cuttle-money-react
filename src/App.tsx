@@ -12,8 +12,11 @@ import Statistics from './views/Statistics';
 import NoMatch from './views/NoMatch';
 
 function App() {
+  let optionsState;
   return (
     <Router>
+
+
 
       <Switch>
         <Route exact path="/tags">
