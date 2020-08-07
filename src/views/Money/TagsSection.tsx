@@ -21,6 +21,7 @@ const Wrapper = styled.section`
                margin: 8px 12px;
                &.selected{
                   background: #f60;
+                  color:white;
            }
         }
       }
