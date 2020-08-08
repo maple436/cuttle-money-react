@@ -37,44 +37,49 @@ const Wrapper = styled.section`
           
 `;
 
-const TagsSection: React.FC = () => {
-  const [tags,setTags]=useState<string[]>(['衣','食','住','行'])
-  const [selectedTags,setSelectedTags]=useState<string[]>([])
+type Props = {
+  value: string[];
+  onChange: (selected: string[]) => void
+}
+const TagsSection: React.FC<Props> = (props) => {
+  const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
+  const selectedTags = props.value;
 
-  const onAddTag=()=>{
-    const tagName=window.prompt('请输入标签名:');
-    if(tagName){
-      const index=tags.indexOf(tagName);
-      if(index>=0){
-        return window.alert('标签名重复，请重新输入!!!')
-      }else{
-        setTags([...tags,tagName]);
+
+  const onAddTag = () => {
+    const tagName = window.prompt('请输入标签名:');
+    if (tagName) {
+      const index = tags.indexOf(tagName);
+      if (index >= 0) {
+        return window.alert('标签名重复，请重新输入!!!');
+      } else {
+        setTags([...tags, tagName]);
       }
-    }else if(!tagName){
-      return ;
+    } else if (!tagName) {
+      return;
     }
-  }
+  };
 
-  const onToggleTag=(tag:string)=>{
-    const index=selectedTags.indexOf(tag);
-    if(index>=0){
+  const onToggleTag = (tag: string) => {
+    const index = selectedTags.indexOf(tag);
+    if (index >= 0) {
       //如果 tag 已被选中，就复制所有没有被选中的 tag，作为新的 selectedTag
-      setSelectedTags(selectedTags.filter(t=>t!==tag));
-    }else{
-      setSelectedTags([...selectedTags,tag])
+      props.onChange(selectedTags.filter(t => t !== tag));
+    } else {
+      props.onChange([...selectedTags, tag]);
     }
-  }
+  };
 
-  const getClass=(tag:string)=>selectedTags.indexOf(tag)>=0?'selected':'';
+  const getClass = (tag: string) => selectedTags.indexOf(tag) >= 0 ? 'selected' : '';
 
 
   return (
     <Wrapper>
       <ol>
-        {tags.map(tag=>
+        {tags.map(tag =>
           <li key={tag}
-          onClick={()=>{onToggleTag(tag)}}
-          className={getClass(tag)}>{tag}</li>
+              onClick={() => {onToggleTag(tag);}}
+              className={getClass(tag)}>{tag}</li>
         )}
       </ol>
       <button onClick={onAddTag}>新增标签</button>
