@@ -1,6 +1,6 @@
 import React from 'react';
 import {useTags} from 'hooks/useTags';
-import {useParams,useHistory} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import Layout from 'components/Layout';
 import Icon from 'components/Icon';
 import styled from 'styled-components';
@@ -12,7 +12,6 @@ import {Space} from '../components/Space';
 type Params = {
   id: string;
 }
-
 
 const InputWrapper = styled.div`
   background:white;
@@ -29,9 +28,15 @@ const Topbar = styled.header`
   background:white;
 `;
 
+const Span = styled.span`
+  margin-top: 50px;
+  font-size: 24px;
+  color: #ff6600;
+`;
+
 const Tag: React.FC = () => {
-  const {findTag,updateTag,deleteTag} = useTags();
-  let {id:IdString} = useParams<Params>();
+  const {findTag, updateTag, deleteTag} = useTags();
+  let {id: IdString} = useParams<Params>();
   const tag = findTag(parseInt(IdString));
   const tagContent = (tag: { id: number; name: string }) => (
     <div>
@@ -54,10 +59,10 @@ const Tag: React.FC = () => {
     </div>
   );
 
-  const history = useHistory()
-  const onClickBack = ()=>{
-    history.goBack()
-  }
+  const history = useHistory();
+  const onClickBack = () => {
+    history.goBack();
+  };
 
   return (
     <Layout>
@@ -67,7 +72,7 @@ const Tag: React.FC = () => {
         <Icon/>
       </Topbar>
 
-      {tag ? tagContent(tag) : <Center>tag 不存在</Center>}
+      {tag ? tagContent(tag) : <Center><Span>已删除</Span></Center>}
 
     </Layout>)
     ;

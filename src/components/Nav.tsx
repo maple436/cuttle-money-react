@@ -11,9 +11,9 @@ const NavWrapper = styled.nav`
   display: flex;
  
    >.selected{
-    color:red;
+    color:#f60;
     .icon{
-    fill:red;
+    fill:#f60;
     }
    }
     >.item{

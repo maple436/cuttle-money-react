@@ -12,6 +12,10 @@ const MyLayout = styled(Layout)`
   flex-direction: column;
 `;
 
+const CategoryWrapper = styled.div`
+    background:#c4c4c4;
+`;
+
 type Category = '-' | '+'
 
 const defaultFormData = {
@@ -23,18 +27,18 @@ const defaultFormData = {
 
 function Money() {
   const [selected, setSelected] = useState(defaultFormData);
-  const {records,addRecord}=useRecords();
+  const {records, addRecord} = useRecords();
 
   const onChange = (obj: Partial<typeof selected>) => {
     setSelected({...selected, ...obj});
   };
 
-  const submit=()=>{
-    if(addRecord(selected)){
-      alert('保存成功')
+  const submit = () => {
+    if (addRecord(selected)) {
+      alert('保存成功');
       setSelected(defaultFormData);
     }
-  }
+  };
 
   return (
     <MyLayout>
@@ -42,9 +46,11 @@ function Money() {
                    onChange={tagIds => onChange({tagIds})}>
       </TagsSection>
       <NoteSection value={selected.note}
-                   onChange={note=>onChange({note})}/>
-      <CategorySection value={selected.category}
-                       onChange={(category) => onChange({category})}/>
+                   onChange={note => onChange({note})}/>
+      <CategoryWrapper>
+        <CategorySection value={selected.category}
+                         onChange={(category) => onChange({category})}/>
+      </CategoryWrapper>
       <NumberPadSection value={selected.amount}
                         onChange={(amount) => onChange({amount})}
                         onOk={submit}
