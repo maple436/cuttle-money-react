@@ -1,11 +1,10 @@
 import {useEffect, useState} from 'react';
 import {createId} from 'lib/cratedId';
-import {useUpdate} from './hooks/useUpdate';
-
-
+import {useUpdate} from './useUpdate';
 
 const useTags = () => {
-  const [tags, setTags] = useState<{ id: number; name: string }[]>([])
+  const [tags, setTags] = useState<{ id: number; name: string }[]>([]);
+
   useEffect(() => {
     let localTags = JSON.parse(window.localStorage.getItem('tags') || '[]');
     if (localTags.length === 0) {
@@ -19,6 +18,7 @@ const useTags = () => {
     setTags(localTags);
 
   }, []); // 组件挂载时执行
+
   useUpdate(() => {
     window.localStorage.setItem('tags', JSON.stringify(tags));
   }, [tags]);
@@ -51,6 +51,5 @@ const useTags = () => {
   }
   return {tags, setTags, findTag, updateTag, findTagIndex,deleteTag,addTag};
 };
-
 
 export {useTags};
