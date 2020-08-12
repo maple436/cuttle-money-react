@@ -19,6 +19,10 @@ const AppWrapper = styled.div`
 `;
 
 function App() {
+  window.onload=()=>{
+    return alert("请使用手机预览，体验更佳！！！")
+  }
+
   return (
     <AppWrapper>
       <Router>
