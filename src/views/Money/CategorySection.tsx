@@ -14,7 +14,7 @@ const Wrapper = styled.section`
               content: '';
               display:block; 
               height: 3px;
-              background:#333;
+              background: #aaa;
               position:absolute;
               bottom:0;
               width: 100%;
@@ -23,6 +23,7 @@ const Wrapper = styled.section`
           }
         }
 `;
+
 type Props = {
   value: '-' | '+' ;
   onChange: (value:'-'|'+') => void;
