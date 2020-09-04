@@ -14,15 +14,15 @@ const Wrapper = styled.section`
         > ol { 
              margin: 0 -12px;
            > li{
-               background: #D9D9D9; 
+               background: rgb(244,244,244); 
                border-radius: 18px;
                display:inline-block; 
                padding: 3px 18px; 
                font-size: 14px;
                margin: 8px 12px;
                &.selected{
-                  background: #f60;
-                  color:white;
+                  background: rgb(254,217,67);
+                  color:black;
            }
         }
       }
@@ -31,8 +31,8 @@ const Wrapper = styled.section`
             background:none;
             border: none; 
             padding: 2px 4px;
-            border-bottom: 1px solid #333;
-            color: #666;
+            border-bottom: 1px solid rgb(254,217,67);
+            color: rgb(254,217,67);
             margin-top: 8px;
           }
           

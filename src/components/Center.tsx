@@ -5,6 +5,9 @@ const Center = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  //>button{
+  //  background: rgb(254,217,67);
+  //};
 `;
 
 export {Center}

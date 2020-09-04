@@ -26,7 +26,11 @@ const TagList = styled.ol`
   }
 `;
 
-
+const ButtonWrapper=styled.div`
+    >button{
+      background: rgb(254,217,67);
+    }
+`
 
 function Tags() {
   const {tags,addTag}=useTags();
@@ -47,7 +51,10 @@ function Tags() {
         <Space/>
         <Space/>
         <Space/>
-        <Button onClick={addTag}>新增标签</Button>
+        <ButtonWrapper>
+          <Button onClick={addTag} className="button">新增标签</Button>
+        </ButtonWrapper>
+
       </Center>
     </Layout>
   );

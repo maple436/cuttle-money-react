@@ -33,6 +33,11 @@ const Span = styled.span`
   font-size: 24px;
   color: #ff6600;
 `;
+const ButtonWrapper=styled.div`
+    >button{
+      background:red;
+    }
+`
 
 const Tag: React.FC = () => {
   const {findTag, updateTag, deleteTag} = useTags();
@@ -52,9 +57,11 @@ const Tag: React.FC = () => {
         <Space/>
         <Space/>
         <Space/>
-        <Button onClick={() => {
-          deleteTag(tag.id);
-        }}>删除标签</Button>
+        <ButtonWrapper>
+          <Button onClick={() => {
+            deleteTag(tag.id);
+          }}>删除标签</Button>
+        </ButtonWrapper>
       </Center>
     </div>
   );

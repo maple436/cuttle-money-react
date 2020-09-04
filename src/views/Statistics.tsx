@@ -7,7 +7,7 @@ import day from 'dayjs';
 import {useTags} from '../hooks/useTags';
 
 const CategoryWrapper = styled.div`
-  background:white;
+  background:rgb(254,217,67);
 `;
 
 const Header = styled.h3`
@@ -19,7 +19,8 @@ const Header = styled.h3`
 const Item = styled.div`
   display:flex;
   justify-content: space-between;
-  background: white;
+  margin-bottom: 2px;
+  background: rgba(254,217,67,0.6);
   font-size: 18px;
   line-height: 20px;
   padding: 10px 16px;
@@ -59,7 +60,7 @@ function Statistics(){
                          onChange={value => setCategory(value)}/>
       </CategoryWrapper>
       {array.map(([date, records]) => <div>
-        <Header>
+        <Header >
           {date}
         </Header>
         <div>
